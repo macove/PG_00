@@ -3,7 +3,8 @@
 int main() {
 
 
-
+	printf("Hi\n");
+	printf("コンパイル");
 
 
 
