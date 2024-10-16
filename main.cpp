@@ -1,20 +1,33 @@
 #include <stdio.h>
 
 int Recursive(int n) {
-	if (n <= 1) {
-		return 1;
+	
+	if (n == 1) {
+		return 100;
 	}
-	return (n * Recursive)
+		
+	return (Recursive(n - 1) * 2 - 50) ;
+	
+}
+
+int common(int n) {
+	int result = 1072 * n;
+	return result;
 }
 
 int main(void) {
 
-	
+	int n = 5;
+	int recursiveResult;
+	int commonResult;
 
-	printf("%d\n", Min<int>(114, 150));
-	printf("%f\n", Min<float>(1.5f, 10.0f));
-	printf("%.9lf\n", Min<double>(9.544417156, 10.01215456));
-	printf("%c\n", Min('f', 'a'));
+	recursiveResult = Recursive(n);
+	commonResult = common(n);
+
+	printf("%d時間働いた時の賃金\n",n);
+	printf("再帰的: %d\n", recursiveResult);
+	printf("一般的: %d\n", commonResult);
+	
 
 	return 0;
 }
