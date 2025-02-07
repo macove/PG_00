@@ -2,31 +2,31 @@
 #include <iostream>
 using namespace std;
 
-class value {
+class Value {
 public:
-	virtual void Values() const {
+	virtual void GetValue() const {
 		printf("Something I think is valuable ");
 	}
-	virtual ~value() {};
+	virtual ~Value() {};
 };
-class peopleA : public value {
+class PersonA : public Value {
 public:
-	void Values() const override {
-		printf("Money/");
+	void GetValue() const override {
+		printf("Money\n");
 	}
 
 };
-class peopleB : public value {
+class PersonB : public Value {
 public:
-	void Values() const override {
-		printf("Family");
+	void GetValue() const override {
+		printf("Family\n");
 	}
 
 };
-class peopleC : public value {
+class PersonC : public Value {
 public:
-	void Values() const override {
-		printf("Experience");
+	void GetValue() const override {
+		printf("Experience\n");
 	}
 
 };
@@ -34,19 +34,19 @@ public:
 int main(void) {
 	
 	
-	value* peoples[3];
+	Value* people[3];
 
 
-	peoples[0] = new peopleA();
-	peoples[1] = new peopleB();
-	peoples[2] = new peopleC();
+	people[0] = new PersonA();
+	people[1] = new PersonB();
+	people[2] = new PersonC();
 
 	for (int i = 0; i < 3; i++) {
-		peoples[i]->Values();
+		people[i]->GetValue();
 	}
 
 	for (int i = 0; i < 3; i++) {
-		delete peoples[i];
+		delete people[i];
 	}
 
 	return 0;
