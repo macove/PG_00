@@ -18,7 +18,7 @@ int main(void) {
 
 	std::string a(100000, 'a');
 
-	std::chrono::system_clock::time_point start_copy =std::chrono::system_clock::now();
+	std::chrono::system_clock::time_point start_copy = std::chrono::system_clock::now();
 	std::string b = a; 
 
 	std::chrono::system_clock::time_point end_copy =std::chrono::system_clock::now();
@@ -36,7 +36,7 @@ int main(void) {
 
 	printf("100,000 alphabet comparison (Copy vs Move):\n");
 	std::cout << "Copy time: " << copy_.count() << " μs" << std::endl;
-	std::cout << "Copy time: " << move_.count() << " μs" << std::endl;
+	std::cout << "Move time: " << move_.count() << " μs" << std::endl;
 	//std::cout << "Move time: " << move_duration.count() << " μs" << std::endl;
 	//printf("Copy time: %µs\n", copy_duration);
 	//printf("Move time: %lld microseconds\n", move_duration);
