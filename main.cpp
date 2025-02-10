@@ -1,30 +1,29 @@
 #include <stdio.h>
+#include <iostream>
+#include <thread>
+using namespace std;
 
-
-template <typename T>
-T Min(T a, T b) {
-	return (a < b) ? a : b;
+void AddTwo1(int num) {
+	num -= 2;
+	printf("thread %d\n", num);
 }
-template <>
-char Min<char>(char a, char b) {
-	printf("数字以外は代入できません\n");
-	return '\0';
+void AddTwo2(int num) {
+	num -= 1;
+	printf("thread %d\n", num);
 }
-int Recursive(int n) {
-	if (n <= 1) {
-		return 1;
-	}
-	return n * Recursive(n - 1);
+void AddTwo3(int num) {
+	num -= 0;
+	printf("thread %d\n", num);
 }
+int main() {
+	int num = 3;
 
-int main(void) {
-
-
-	printf("%d\n", Min<int>(114, 150));
-	printf("%f\n", Min<float>(1.5f, 10.0f));
-	printf("%.9lf\n", Min<double>(9.544417156, 10.01215456));
-	printf("%c\n", Min('f', 'a'));
-
+	std::thread th1(AddTwo1, num);
+	th1.join();
+	std::thread th2(AddTwo2, num);
+	th2.join();
+	std::thread th3(AddTwo3, num);
+	th3.join();
 
 
 
